@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SkillVerse - Courses</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #0f0f0f;
+      color: #ffffff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    header {
+      background-color: #1f1f1f;
+      width: 100%;
+      padding: 1rem;
+      text-align: center;
+      font-size: 2rem;
+      font-weight: bold;
+      border-bottom: 2px solid #2f2f2f;
+    }
+
+    .content {
+      padding: 2rem;
+      width: 90%;
+      max-width: 1200px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .course {
+      background-color: #1a1a1a;
+      border: 1px solid #2e2e2e;
+      border-radius: 12px;
+      padding: 1rem;
+      text-align: center;
+      transition: transform 0.2s ease-in-out;
+    }
+
+    .course:hover {
+      transform: scale(1.03);
+      border-color: #00bfff;
+    }
+
+    .course h2 {
+      margin-top: 0;
+      color: #00bfff;
+    }
+
+    .course p {
+      color: #cccccc;
+    }
+
+    .course a {
+      display: inline-block;
+      margin-top: 1rem;
+      text-decoration: none;
+      color: #ffffff;
+      background-color: #00bfff;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      transition: background-color 0.2s ease-in-out;
+    }
+
+    .course a:hover {
+      background-color: #008fcc;
+    }
+
+    footer {
+      margin-top: auto;
+      padding: 1rem;
+      text-align: center;
+      color: #aaaaaa;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <header>SkillVerse - Courses</header>
+  <div class="content">
+    <div class="course">
+      <h2>Web Development</h2>
+      <p>Learn HTML, CSS, JavaScript, and modern frameworks with hands-on projects and real-world examples.</p>
+      <a href="web-development.html">Start Learning</a>
+    </div>
+    <div class="course">
+      <h2>Artificial Intelligence</h2>
+      <p>Understand machine learning, neural networks, and build your own AI-powered applications.</p>
+      <a href="ai-course.html">Explore AI</a>
+    </div>
+    <div class="course">
+      <h2>Freelancing Skills</h2>
+      <p>Master platforms like Fiverr and Upwork, build your portfolio, and land clients confidently.</p>
+      <a href="freelancing.html">Start Freelancing</a>
+    </div>
+    <div class="course">
+      <h2>AI Chatbot</h2>
+      <p>Chat with our intelligent AI to ask questions, learn instantly, and get help with topics.</p>
+      <a href="chatbot.html">Talk to AI</a>
+    </div>
+    <div class="course">
+      <h2>CV Builder</h2>
+      <p>Create a professional CV easily with our smart CV builder tool.</p>
+      <a href="cv-maker.html">Build Your CV</a>
+    </div>
+    <div class="course">
+      <h2>Quizzes & Tests</h2>
+      <p>Assess your knowledge through subject-wise quizzes and smart test recommendations.</p>
+      <a href="quizzes.html">Take a Quiz</a>
+    </div>
+  </div>
+  <footer>Made by ByFatimas</footer>
+</body>
+</html>

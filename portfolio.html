@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SkillVerse - Auto-Updatable Portfolio</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #121212;
+      color: #ffffff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    header {
+      background-color: #1f1f1f;
+      width: 100%;
+      padding: 20px;
+      text-align: center;
+      font-size: 28px;
+      font-weight: bold;
+      color: #00bcd4;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.6);
+    }
+
+    .container {
+      margin-top: 40px;
+      width: 90%;
+      max-width: 900px;
+      background-color: #1e1e1e;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 12px rgba(0,0,0,0.4);
+    }
+
+    h2 {
+      color: #00bcd4;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .upload-section {
+      margin: 20px 0;
+      padding: 25px;
+      border: 2px dashed #555;
+      border-radius: 12px;
+      text-align: center;
+      cursor: pointer;
+    }
+
+    input[type="file"] {
+      display: none;
+    }
+
+    .upload-label {
+      display: inline-block;
+      color: #aaa;
+      font-size: 16px;
+    }
+
+    .ai-helper {
+      margin-top: 40px;
+      background-color: #2c2c2c;
+      padding: 25px;
+      border-radius: 12px;
+    }
+
+    .ai-helper h3 {
+      color: #00bcd4;
+    }
+
+    .ai-helper p {
+      color: #ccc;
+    }
+
+    .update-log {
+      margin-top: 20px;
+      font-size: 14px;
+      color: #aaa;
+    }
+
+    footer {
+      margin: 60px 0 20px;
+      color: #888;
+      font-size: 14px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <header>SkillVerse - Auto-Updatable Portfolio</header>
+
+  <div class="container">
+    <h2>Upload & Auto-Update Your Portfolio</h2>
+
+    <label for="file-upload" class="upload-section">
+      <input type="file" id="file-upload" onchange="autoUpdatePortfolio(this)" />
+      <span class="upload-label" id="upload-label">Click to upload your design, document, or resume</span>
+    </label>
+
+    <div class="ai-helper">
+      <h3>AI Portfolio Assistant</h3>
+      <p>Get instant feedback, layout suggestions, and content optimization powered by AI. Your uploaded file is analyzed and the assistant helps enhance your professional presence.</p>
+    </div>
+
+    <div class="update-log" id="update-log">
+      No updates made yet.
+    </div>
+  </div>
+
+  <footer>
+    Made by ByFatimas | SkillVerse
+  </footer>
+
+  <script>
+    function autoUpdatePortfolio(input) {
+      const label = document.getElementById('upload-label');
+      const log = document.getElementById('update-log');
+      if (input.files && input.files[0]) {
+        const fileName = input.files[0].name;
+        label.textContent = `Uploaded: ${fileName}`;
+        log.textContent = `Last updated: ${new Date().toLocaleString()} with file '${fileName}'`;
+      }
+    }
+  </script>
+</body>
+</html>

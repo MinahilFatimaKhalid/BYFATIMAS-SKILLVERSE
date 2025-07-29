@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SkillVerse - AI CV Builder</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #111;
+      color: #eee;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    header {
+      background-color: #1a1a1a;
+      width: 100%;
+      padding: 20px;
+      text-align: center;
+      font-size: 28px;
+      font-weight: bold;
+      color: #00bcd4;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.6);
+    }
+
+    .container {
+      margin-top: 40px;
+      width: 90%;
+      max-width: 900px;
+      background-color: #1c1c1c;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 12px rgba(0,0,0,0.4);
+    }
+
+    h2 {
+      color: #00bcd4;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    label {
+      margin-top: 15px;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    input, textarea, select {
+      padding: 10px;
+      border-radius: 6px;
+      border: none;
+      background-color: #2a2a2a;
+      color: #fff;
+      font-size: 16px;
+    }
+
+    button {
+      margin-top: 25px;
+      padding: 12px;
+      font-size: 16px;
+      background-color: #00bcd4;
+      border: none;
+      border-radius: 6px;
+      color: #000;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #00a0b3;
+    }
+
+    iframe {
+      border: none;
+      width: 100%;
+      height: 620px;
+      border-radius: 10px;
+      margin-top: 40px;
+    }
+
+    footer {
+      margin: 60px 0 20px;
+      color: #888;
+      font-size: 14px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <header>SkillVerse - AI CV Builder</header>
+
+  <div class="container">
+    <h2>Create Your Smart Resume</h2>
+    <form>
+      <label for="name">Full Name</label>
+      <input type="text" id="name" placeholder="e.g. Ayesha Ali" />
+
+      <label for="email">Email</label>
+      <input type="email" id="email" placeholder="e.g. ayesha@example.com" />
+
+      <label for="summary">Professional Summary</label>
+      <textarea id="summary" rows="4" placeholder="Summarize your experience and goals..."></textarea>
+
+      <label for="skills">Skills</label>
+      <textarea id="skills" rows="3" placeholder="e.g. Python, Web Development, Communication"></textarea>
+
+      <label for="experience">Experience</label>
+      <textarea id="experience" rows="4" placeholder="List your work experience here..."></textarea>
+
+      <label for="education">Education</label>
+      <textarea id="education" rows="3" placeholder="Your education background..."></textarea>
+
+      <label for="template">Choose Template</label>
+      <select id="template">
+        <option value="modern">Modern</option>
+        <option value="classic">Classic</option>
+        <option value="creative">Creative</option>
+      </select>
+
+      <button type="submit">Generate CV</button>
+    </form>
+
+    <iframe src="https://www.chatbase.co/chatbot-iframe/clkxz0v2k00h409l3d4im9ksj" title="CV Builder AI Assistant"></iframe>
+  </div>
+
+  <footer>
+    Made by ByFatimas | SkillVerse
+  </footer>
+</body>
+</html>

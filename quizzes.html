@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SkillVerse - Quizzes & AI Chat</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #121212;
+      color: #f0f0f0;
+    }
+    header {
+      background-color: #1e1e1e;
+      padding: 20px;
+      text-align: center;
+      font-size: 2em;
+      font-weight: bold;
+      border-bottom: 2px solid #333;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      background-color: #1a1a1a;
+      padding: 10px 0;
+      border-bottom: 1px solid #333;
+    }
+    nav a {
+      color: #f0f0f0;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: 500;
+    }
+    nav a:hover {
+      text-decoration: underline;
+      color: #4fc3f7;
+    }
+    .main {
+      padding: 30px;
+      text-align: center;
+    }
+    .quiz-box {
+      background-color: #1e1e1e;
+      border: 1px solid #333;
+      padding: 25px;
+      border-radius: 12px;
+      margin: 20px auto;
+      width: 80%;
+      max-width: 600px;
+    }
+    .quiz-box h2 {
+      margin-bottom: 15px;
+      font-size: 1.5em;
+    }
+    .quiz-box button {
+      padding: 10px 20px;
+      margin-top: 10px;
+      border: none;
+      border-radius: 8px;
+      background-color: #4fc3f7;
+      color: #000;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .quiz-box button:hover {
+      background-color: #0288d1;
+    }
+    .chatbot-section {
+      background-color: #1e1e1e;
+      padding: 30px;
+      margin-top: 40px;
+      border-radius: 12px;
+      width: 90%;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .chatbot-section h3 {
+      font-size: 1.5em;
+      margin-bottom: 20px;
+    }
+    .chatbot-box {
+      border: 1px solid #333;
+      padding: 20px;
+      height: 250px;
+      overflow-y: auto;
+      background-color: #181818;
+      border-radius: 10px;
+    }
+    .chat-input {
+      margin-top: 15px;
+      display: flex;
+    }
+    .chat-input input {
+      flex: 1;
+      padding: 10px;
+      border: none;
+      border-radius: 6px 0 0 6px;
+    }
+    .chat-input button {
+      padding: 10px 20px;
+      border: none;
+      background-color: #4fc3f7;
+      color: #000;
+      font-weight: bold;
+      border-radius: 0 6px 6px 0;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <header>SkillVerse Quizzes & AI Chat</header>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="quizzes.html">Quizzes</a>
+    <a href="courses.html">Courses</a>
+    <a href="cv.html">CV Builder</a>
+    <a href="chatbot.html">AI Chat</a>
+  </nav>
+  <div class="main">
+    <div class="quiz-box">
+      <h2>Test Your Skills: Professional Level</h2>
+      <p>Take multiple-choice quizzes designed by expert educators across categories like Data Science, Web Development, AI, and more.</p>
+      <button onclick="alert('Launching Quiz...')">Start Quiz</button>
+    </div>
+
+    <div class="quiz-box">
+      <h2>Code Challenge</h2>
+      <p>Complete mini coding tasks and debug problems to boost your problem-solving skills.</p>
+      <button onclick="alert('Launching Code Challenge...')">Begin Test</button>
+    </div>
+
+    <div class="quiz-box">
+      <h2>Custom Test Builder</h2>
+      <p>Create custom tests for your students or teammates. Share links and track performance live.</p>
+      <button onclick="alert('Building Custom Test...')">Build Now</button>
+    </div>
+
+    <div class="chatbot-section">
+      <h3>AI Study Assistant - Ask Anything</h3>
+      <div class="chatbot-box" id="chatBox">
+        <p><strong>Bot:</strong> Hello! How can I assist with your courses or learning journey today?</p>
+      </div>
+      <div class="chat-input">
+        <input type="text" id="userInput" placeholder="Ask your course question..." />
+        <button onclick="sendMessage()">Send</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function sendMessage() {
+      const input = document.getElementById('userInput');
+      const chatBox = document.getElementById('chatBox');
+      const userText = input.value.trim();
+
+      if (userText) {
+        const userMessage = `<p><strong>You:</strong> ${userText}</p>`;
+        const botMessage = `<p><strong>Bot:</strong> ${generateReply(userText)}</p>`;
+        chatBox.innerHTML += userMessage + botMessage;
+        chatBox.scrollTop = chatBox.scrollHeight;
+        input.value = '';
+      }
+    }
+
+    function generateReply(text) {
+      const keywords = ["course", "quiz", "deadline", "material", "project"];
+      for (let word of keywords) {
+        if (text.toLowerCase().includes(word)) {
+          return "Here's some expert guidance on that. Please refer to our course materials or reach out to your mentor.";
+        }
+      }
+      return "Let me get back to you with a detailed explanation. Meanwhile, keep exploring!";
+    }
+  </script>
+</body>
+</html>
