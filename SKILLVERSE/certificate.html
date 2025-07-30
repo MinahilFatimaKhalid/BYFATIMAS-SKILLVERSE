@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SkillVerse Certificate</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter&display=swap" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f9f9f9;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem;
+    }
+
+    .form-container {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+      max-width: 500px;
+      width: 100%;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    label {
+      font-weight: 500;
+      display: block;
+      margin: 1rem 0 0.5rem;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 0.7rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+
+    button {
+      margin-top: 1.5rem;
+      padding: 0.9rem;
+      width: 100%;
+      background:#00e5ff;
+      color: white;
+      border: none;
+      font-size: 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    #certificate {
+      display: none;
+      width: 1000px;
+      height: 700px;
+      background: white;
+      padding: 3rem;
+      text-align: center;
+      font-family: 'Playfair Display', serif;
+      border: 15px double #00e5ff;
+      position: relative;
+    }
+
+    #certificate h1 {
+      font-size: 2.8rem;
+      margin-top: 1rem;
+      color: #111;
+    }
+
+    #certificate .subheading {
+      font-size: 1.2rem;
+      color: #555;
+      margin-bottom: 2rem;
+    }
+
+    #certificate .name {
+      font-size: 2.4rem;
+      font-weight: bold;
+      margin: 1.5rem 0 0.5rem;
+      color: #222;
+    }
+
+    #certificate .course {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+    }
+
+    .corner {
+      position: absolute;
+      font-size: 0.85rem;
+      color: #555;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .top-left {
+      top: 1.5rem;
+      left: 2rem;
+    }
+
+    .top-right {
+      top: 1.5rem;
+      right: 2rem;
+      text-align: right;
+    }
+
+    .bottom-left {
+      bottom: 1.5rem;
+      left: 2rem;
+    }
+
+    .bottom-right {
+      bottom: 1.5rem;
+      right: 2rem;
+      text-align: right;
+      font-style: italic;
+    }
+
+    #downloadBtn {
+      display: none;
+      margin-top: 1rem;
+      background-color: #800000;
+      color: #fff;
+      padding: 0.8rem 1.4rem;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    @media (max-width: 1020px) {
+      #certificate {
+        transform: scale(0.8);
+        transform-origin: top left;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="form-container">
+    <h2>🎓 Generate Your SkillVerse Certificate</h2>
+    <form id="form">
+      <label for="name">Full Name:</label>
+      <input type="text" id="name" required placeholder="e.g. Minahil Fatima" />
+
+      <label for="age">Age:</label>
+      <input type="number" id="age" required min="1" placeholder="e.g. 21" />
+
+      <label for="course">Select Course:</label>
+      <select id="course" required>
+        <option value="" disabled selected>Select course</option>
+        <option value="Web Development">Web Development</option>
+        <option value="Content Writing">Content Writing</option>
+        <option value="AI Fundamentals">AI Fundamentals</option>
+        <option value="Graphic Design">Graphic Design</option>
+        <option value="Digital Marketing">Digital Marketing</option>
+      </select>
+
+      <button type="submit">Generate Certificate</button>
+    </form>
+  </div>
+
+  <div id="certificate">
+    <div class="corner top-left">SkillVerse</div>
+    <div class="corner top-right">www.skillverse.org</div>
+    <div class="corner bottom-left">byFatimas</div>
+    <div class="corner bottom-right">Founder: Minahil Fatima</div>
+
+    <div class="subheading">This certificate is proudly presented to</div>
+    <div class="name" id="certName">Name Here</div>
+    <div class="course" id="certCourse">For successfully completing the course</div>
+    <h1>Certificate of Completion</h1>
+  </div>
+
+  <button id="downloadBtn">Download Certificate as Image</button>
+
+  <script>
+    const form = document.getElementById("form");
+    const cert = document.getElementById("certificate");
+    const certName = document.getElementById("certName");
+    const certCourse = document.getElementById("certCourse");
+    const downloadBtn = document.getElementById("downloadBtn");
+
+    form.addEventListener("submit", function(e) {
+      e.preventDefault();
+      const name = document.getElementById("name").value.trim();
+      const age = document.getElementById("age").value.trim();
+      const course = document.getElementById("course").value;
+
+      certName.textContent = name;
+      certCourse.innerHTML = `For successfully completing the <br><strong>${course}</strong> course at age ${age}`;
+
+      cert.style.display = "block";
+      downloadBtn.style.display = "inline-block";
+
+      window.scrollTo({ top: cert.offsetTop, behavior: "smooth" });
+    });
+
+    downloadBtn.addEventListener("click", () => {
+      html2canvas(cert).then(canvas => {
+        const link = document.createElement("a");
+        link.download = "SkillVerse-Certificate.png";
+        link.href = canvas.toDataURL();
+        link.click();
+      });
+    });
+  </script>
+</body>
+</html>
+
+
+
+
